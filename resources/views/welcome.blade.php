@@ -12,7 +12,7 @@
     <!-- Bootstrap -->
     <link href="{{secure_asset('/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{secure_asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
     <link href="{{secure_asset('/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- Animate.css -->
