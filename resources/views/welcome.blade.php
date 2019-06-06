@@ -1,103 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Sistema Administrativo de Investigaciones</title>
-
-    <!-- Bootstrap -->
-    <link href="{{secure_asset('/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{secure_asset('/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{secure_asset('/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="{{secure_asset('/vendors/animate.css/animate.min.css')}}" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="{{secure_asset('/build/css/custom.min.css')}}" rel="stylesheet">
-  </head>
-
-  <body class="login">
-    <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
-
-      <div class="login_wrapper">
-        <div class="animate form login_form">
-          <section class="login_content">
-            <form>
-              <h1>Iniciar sesión</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Usuario" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Contraseña" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="dashboard">Ingresar</a>
-                <a class="reset_pass" href="#">¿Olvidó su contraseña?</a>
+@extends('layouts.gentemplate')
+@section('Content')
+<div class="page-title">
+              <div class="title_left">
+                <h3>Panel de Control <small>Proyectos de Investigación</small></h3>
               </div>
 
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">¿Nuevo a Sis-I?
-                  <a href="#signup" class="to_register"> Crear una cuenta </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fas fa-pen-alt"></i>Sistema Administrativo de Investigaciones (Sis-I)</h1>
-                  <p>Proyecto de Sistemas de Base de Datos I</p>
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Buscar</button>
+                    </span>
+                  </div>
                 </div>
               </div>
-            </form>
-          </section>
-        </div>
+            </div>
+            
+            <div class="clearfix"></div>
 
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form>
-              <h1>Regístrate</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Usuario" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Contraseña" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Enviar</a>
-              </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Proyectos de Investigación</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
 
-              <div class="clearfix"></div>
+                    <p>Estos son los proyectos de investigación disponibles hasta la fecha:</p>
 
-              <div class="separator">
-                <p class="change_link">¿Ya eres miembro?
-                  <a href="#signin" class="to_register"> Inicia sesión </a>
-                </p>
+                    <!-- start project list -->
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%">#</th>
+                          <th style="width: 20%">Título de la investigación</th>
+                          <th>Miembros</th>
+                          <th>Progreso</th>
+                          <th>Estado</th>
+                          <th style="width: 20%">Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>#</td>
+                          <td>
+                            <a>Pesamakini Backend UI</a>
+                            <br />
+                            <small>Created 01.01.2015</small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
+                            </div>
+                            <small>57% Complete</small>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-success btn-xs">Success</button>
+                          </td>
+                          <td>
+                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#</td>
+                          <td>
+                            <a>Pesamakini Backend UI</a>
+                            <br />
+                            <small>Created 01.01.2015</small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="47"></div>
+                            </div>
+                            <small>47% Complete</small>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-success btn-xs">Success</button>
+                          </td>
+                          <td>
+                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#</td>
+                          <td>
+                            <a>Pesamakini Backend UI</a>
+                            <br />
+                            <small>Created 01.01.2015</small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="77"></div>
+                            </div>
+                            <small>77% Complete</small>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-success btn-xs">Success</button>
+                          </td>
+                          <td>
+                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#</td>
+                          <td>
+                            <a>Pesamakini Backend UI</a>
+                            <br />
+                            <small>Created 01.01.2015</small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                              <li>
+                                <img src="images/user.png" class="avatar" alt="Avatar">
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
+                            </div>
+                            <small>60% Complete</small>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-success btn-xs">Success</button>
+                          </td>
+                          <td>
+                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- end project list -->
 
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fas fa-pen-alt"></i>Sistema Administrativo de Investigaciones (Sis-I)</h1>
-                  <p>Proyecto de Sistemas de Base de Datos I</p>
+                  </div>
                 </div>
               </div>
-            </form>
-          </section>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+            </div>
+@stop
