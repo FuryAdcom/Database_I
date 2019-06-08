@@ -66,19 +66,20 @@
                       </ul>
                       <div id="step-1">
                         <h2 class="StepTitle">Identifiquemos las condiciones</h2>
-                        <form class="form-horizontal form-label-left">
+                        <form action="{{url('enunciado_holopraxico')}}" method="post" class="form-horizontal form-label-left">
 
+                          {{ csrf_field() }}
                           <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="message">¿Qué sucede?</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                                <textarea id="message" required="required" class="form-control" name="p1" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                                 data-parsley-validation-threshold="10"></textarea>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="message">¿Cuándo sucede?</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                                <textarea id="message" required="required" class="form-control" name="p2" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                                 data-parsley-validation-threshold="10"></textarea>
                             </div>
                           </div>

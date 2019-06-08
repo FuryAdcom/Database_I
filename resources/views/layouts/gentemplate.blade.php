@@ -15,16 +15,7 @@
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
     <link href="{{asset('nprogress/nprogress.css')}}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{{asset('iCheck/skins/flat/green.css')}}" rel="stylesheet">
 	
-    <!-- bootstrap-progressbar -->
-    <link href="{{asset('bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="{{asset('jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="{{asset('bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
 
@@ -63,15 +54,9 @@
                   <h3>Menu Principal</h3>
                   <ul class="nav side-menu">
                     <li><a href="/"><i class="fas fa-home"></i> Panel de Control</a></li>
-                    <li><a><i class="fas fa-edit"></i> Forms <span class="fas fa-chevron-down" style="float:right"></span></a>
+                    <li><a><i class="fas fa-edit"></i> Investigaciones <span class="fas fa-chevron-down" style="float:right"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="form.html">General Form</a></li>
-                        <li><a href="form_advanced.html">Advanced Components</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-                        <li><a href="form_wizards.html">Form Wizard</a></li>
-                        <li><a href="form_upload.html">Form Upload</a></li>
-                        <li><a href="form_buttons.html">Form Buttons</a></li>
-                        <li><a href="nueva_investigacion">Nueva investigación</a></li>
+                        <li><a href="idea/nuevainvestigacion">Nueva investigación</a></li>
                       </ul>
                     </li>
                     <li><a><i class="fas fa-desktop"></i> UI Elements <span class="fas fa-chevron-down" style="float:right"></span></a>
@@ -167,13 +152,13 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
+                    <li><a href="perfil"> Perfil</a></li>
                     <li>
                       <a href="configuracion">
                         <span>Configuraciones</span>
                       </a>
                     </li>
-                    <li><a href="login.html"><i class="fas fa-sign-out-alt pull-right"></i> Cerrar Sesión</a></li>
+                    <li><a href="login"><i class="fas fa-sign-out-alt pull-right"></i> Cerrar Sesión</a></li>
                   </ul>
                 </li>
 
@@ -207,36 +192,7 @@
     <script src="{{asset('fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
     <script src="{{asset('nprogress/nprogress.js')}}"></script>
-    <!-- Chart.js')}} -->
-    <script src="{{asset('Chart.js/dist/Chart.min.js')}}"></script>
-    <!-- gauge.js')}} -->
-    <script src="{{asset('gauge.js/dist/gauge.min.js')}}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{asset('bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-    <!-- iCheck -->
-    <script src="{{asset('iCheck/icheck.min.js')}}"></script>
-    <!-- Skycons -->
-    <script src="{{asset('skycons/skycons.js')}}"></script>
-    <!-- Flot -->
-    <script src="{{asset('Flot/jquery.flot.js')}}"></script>
-    <script src="{{asset('Flot/jquery.flot.pie.js')}}"></script>
-    <script src="{{asset('Flot/jquery.flot.time.js')}}"></script>
-    <script src="{{asset('Flot/jquery.flot.stack.js')}}"></script>
-    <script src="{{asset('Flot/jquery.flot.resize.js')}}"></script>
-    <!-- Flot plugins -->
-    <script src="{{asset('flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-    <script src="{{asset('flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-    <script src="{{asset('flot.curvedlines/curvedLines.js')}}"></script>
-    <!-- DateJS -->
-    <script src="{{asset('DateJS/build/date.js')}}"></script>
-    <!-- JQVMap -->
-    <script src="{{asset('jqvmap/dist/jquery.vmap.js')}}"></script>
-    <script src="{{asset('jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script src="{{asset('jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="{{asset('moment/min/moment.min.js')}}"></script>
-    <script src="{{asset('bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
+    
     <!-- Custom Theme Scripts -->
     <script src="{{asset('build/js/custom.min.js')}}"></script>
 

@@ -15,21 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/nueva_investigacion', function () {
-    return view('nuevainvestigacion');
-});
+Route::resource('idea','IdeaController');
 
 Route::get('/ver_investigacion', function () {
     return view('ver_investigacion');
 });
 
-Route::get('/configuracion', function () {
-    return view('configuracion');
+Route::get('/delimitacion_tema', function () {
+    return view('delimitacion_tema');
 });
 
-Route::get('/users', function () {
-    return view('users');
-});
+
 
 //Login
 Auth::routes(['register' => false]);
@@ -37,4 +33,19 @@ Route::get('login#signup', 'Auth\RegisterController@showRegistrationForm')->name
 Route::post('login#signup', 'Auth\RegisterController@register');
 //Login
 
+Route::get('/perfil', function () {
+    return view('perfil');
+});
+
+Route::get('/configuracion', function () {
+    return view('configuracion');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Administracion
+Route::get('/users', function () {
+    return view('users');
+});
+//Fin de Administracion
