@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('idea','IdeaController');
+Route::resource('investigacion','EHController');
 
 Route::get('/ver_investigacion', function () {
     return view('ver_investigacion');
