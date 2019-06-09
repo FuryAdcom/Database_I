@@ -36,15 +36,15 @@ class EHController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'textarea#eh.form-control' => 'required'
+            'eh' => 'required'
         ]);
 
-        $eh = new EnunciadoHolopraxico([
-            'pregunta' => $request->get('textarea#eh.form-control')
+        EnunciadoHolopraxico::create([
+            'id' =>  EnunciadoHolopraxico::max('id')+1,
+            'pregunta' => $request->eh
         ]);
-        
-        $eh->save();
-        return redirect()->route('/');
+
+        return Redirect::to('investigacion.ver_investigacion');
     }
 
     /**

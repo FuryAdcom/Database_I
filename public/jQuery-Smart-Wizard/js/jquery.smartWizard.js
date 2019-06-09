@@ -21,9 +21,9 @@ function SmartWizard(target, options) {
     this.elmStepContainer = $('<div></div>').addClass("stepContainer");
     this.loader = $('<div>Loading</div>').addClass("loader");
     this.buttons = {
-        next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext"),
-        previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
-        finish  : $('<a>'+options.labelFinish+'</a>').attr("href","/enunciado_holopraxico").addClass("buttonFinish")
+        next : $('<button>'+options.labelNext+'</button>').attr("href","#").addClass("buttonNext"),
+        previous : $('<button>'+options.labelPrevious+'</button>').attr("href","#").addClass("buttonPrevious"),
+        finish  : $('<button>'+options.labelFinish+'</button>').attr("type","submit").addClass("buttonFinish")
     };
 
     /*
@@ -31,7 +31,7 @@ function SmartWizard(target, options) {
      */
 
     var _init = function($this) {
-        var elmActionBar = $('<div></div>').addClass("actionBar");
+        var elmActionBar = $('<div></div>').addClass("actionBar form-group");
         elmActionBar.append($this.msgBox);
         $('.close',$this.msgBox).click(function() {
             $this.msgBox.fadeOut("normal");

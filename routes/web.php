@@ -15,14 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('investigacion','EHController');
+Route::get('/cuestionario', 'CuestionarioController@create');
+Route::post('/cuestionario/store', 'CuestionarioController@store');
+
+Route::get('/investigacion', 'EHController@create');
+Route::post('/investigacion/store', 'EHController@store');
+
+
 
 Route::get('/ver_investigacion', function () {
     return view('ver_investigacion');
-});
-
-Route::get('/delimitacion_tema', function () {
-    return view('delimitacion_tema');
 });
 
 

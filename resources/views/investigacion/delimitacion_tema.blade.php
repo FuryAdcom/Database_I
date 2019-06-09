@@ -169,7 +169,8 @@
             </div>
 
             <div class="x_content">
-                <form method="post" action="{{url('investigacion/store')}}">
+                <form method="POST" action="/investigacion/store">
+                @csrf
                     <div class="row">
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12">
