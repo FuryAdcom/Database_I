@@ -21,10 +21,17 @@ Route::post('/cuestionario/store', 'CuestionarioController@store');
 Route::get('/investigacion', 'EHController@create');
 Route::post('/investigacion/store', 'EHController@store');
 
+Route::get('/fundamento', 'EHController@create');
+Route::post('/investigacion/store', 'EHController@store');
+
 
 
 Route::get('/ver_investigacion', function () {
     return view('ver_investigacion');
+});
+
+Route::get('/fase_proyectiva', function () {
+    return view('investigacion.fase_proyectiva');
 });
 
 

@@ -170,21 +170,49 @@
 
             <div class="x_content">
                 <form method="POST" action="/investigacion/store">
-                @csrf
+                    {{ csrf_field() }}
                     <div class="row">
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <h4>Ingrese aquí el <b>enunciado holopráxico</b> de la investigación:</h4>
                                 <textarea id="eh" required="required" class="form-control" name="eh" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
-                                <div class="ln_solid"></div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label>Temporalidad</label>
+                                <fieldset>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="input-prepend input-group">
+                                                <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                                <input type="text" name="temporalidad" id="temporalidad" class="form-control" value="01/01/16 - 01/25/16" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label>Contexto</label>
+                                <input type="text" id="contexto" class="form-control" name="contexto" required />
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label>Evento</label>
+                                <input type="text" id="evento" class="form-control" name="evento" required />
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label>Unidad de estudio</label>
+                                <input type="text" id="unidad_estudio" class="form-control" name="unidad_estudio" required />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="ln_solid"></div>
                                 <h4>Especifique las <b>preguntas secundarias</b>:</h4>
                                 <div class="row">
                                     <div class="col-md-11 col-sm-11 col-xs-12">
-                                        <textarea id="ps" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
+                                        <textarea id="ps" class="form-control" name="ps" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
                                     </div>
                                     <div class="col-md-1 col-sm-1 col-xs-12">
                                         <button type="button" id="agregar-ps" class="btn btn-round btn-lg btn-info">+</button>
@@ -193,10 +221,15 @@
                                 <div class="ln_solid"></div>
                             </div>
                         </div>
-                        <div id="ps-list" class="col-md-12 col-sm-12 col-xs-12">
-                            <!-- Aqui se anexan las preguntas secundarias-->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="accordion" id="ps-list" role="tablist" aria-multiselectable="true">
+
+                                <!-- Aqui se anexan las preguntas secundarias-->
+
+                            </div>
                         </div>
                     </div>
+                    <br>
                     <div class="form-group">
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-round btn-lg btn-success pull-right">Guardar</button>
@@ -212,31 +245,77 @@
 
 @section('js')
 
-<!-- Script Pregunta Secundaria -->
+<!-- bootstrap-daterangepicker -->
+<script src="{{asset('moment/min/moment.min.js')}}"></script>
+<script src="{{asset('bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<!-- bootstrap-datetimepicker -->
+<script src="{{asset('bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')}}"></script>
 
+
+<!-- Script Pregunta Secundaria -->
 <script type="text/javascript">
+    count_pregunta = 0;
     // all done btn
     $("#agregar-ps").click(function() {
         var ps = $("#ps").val();
-        console.log(ps);
         createps(ps);
     });
 
     //create task
-    function createps(text) {
-        var markup = '<div class="row"><div class="borrar col-md-1 col-sm-1 col-xs-12"><a data-toggle="tooltip" data-placement="top" title="Borrar"><span class="glyphicon glyphicon-remove center-margin" aria-hidden="true"></span></a></div><div class="col-md-11 col-sm-11 col-xs-12"><h4>' + text + '</h4></div></div>';
+    function createps(pregunta) {
+        count_pregunta = count_pregunta + 1;
+        var markup = '<div class="panel">' +
+            '<a class="panel-heading" role="tab" id="pregunta' + count_pregunta + '" data-toggle="collapse" data-parent="#ps-list" href="#collapse' + count_pregunta + '" aria-expanded="false" aria-controls="collapse' + count_pregunta + '">' +
+            '<h4 class="panel-title">' + pregunta + '<i class="borrar-pregunta fa fa-close pull-right"></i></h4>' +
+            '</a>' +
+            '<div id="collapse' + count_pregunta + '" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pregunta' + count_pregunta + '">' +
+            '<div class="panel-body">' +
+            '<div class="row">' +
+            '<div class="form-group">' +
+                '<div class="col-md-3 col-sm-3 col-xs-12">' +
+                    '<label>Temporalidad</label>' +
+                    '<fieldset>' +
+                        '<div class="control-group">' +
+                            '<div class="controls">' +
+                                '<div class="input-prepend input-group">' +
+                                    '<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>' +
+                                    '<input type="text" name="temporalidad' + count_pregunta + '" id="temporalidad' + count_pregunta + '" class="form-control" value="01/01/16 - 01/25/16" />' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</fieldset>' +
+                '</div>' +
+                '<div class="col-md-3 col-sm-3 col-xs-12">' +
+                    '<label>Contexto</label>' +
+                    '<input type="text" id="contexto' + count_pregunta + '" class="form-control" name="contexto' + count_pregunta + '" required />' +
+                '</div>' +
+                '<div class="col-md-3 col-sm-3 col-xs-12">' +
+                    '<label>Evento</label>' +
+                    '<input type="text" id="evento' + count_pregunta + '" class="form-control" name="evento' + count_pregunta + '" required />' +
+                '</div>' +
+                '<div class="col-md-3 col-sm-3 col-xs-12">' +
+                    '<label>Unidad de estudio</label>' +
+                    '<input type="text" id="unidad_estudio' + count_pregunta + '" class="form-control" name="unidad_estudio' + count_pregunta + '" required />' +
+                '</div>' +
+            '</div>' +
+
+            '</div>' +
+            '<br>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
         $('#ps-list').append(markup);
         $('#ps').val('');
     }
 
     //delete done task from "already done"
-    $('#ps-list').on('click', '.borrar', function() {
+    $('#ps-list').on('click', '.borrar-pregunta', function() {
         removeItem(this);
     });
 
     //remove done task from list
     function removeItem(element) {
-        $(element).parent().remove();
+        $(element).parent().parent().parent().remove();
     }
 </script>
 

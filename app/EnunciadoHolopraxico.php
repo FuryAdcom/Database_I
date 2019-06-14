@@ -7,16 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class EnunciadoHolopraxico extends Model
 {
 
-    protected $table='enunciado_holopraxicos';
+    protected $table='pregunta';
     protected $primaryKey='id';
-    public $timestamps=false;
 
     protected $fillable = [
-        'id',
-        'pregunta'
-    ];
-
-    protected $guarded =[
-        'id'
+        'pregunta',
+        'tipo'
     ];
 }

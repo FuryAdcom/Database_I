@@ -40,11 +40,11 @@ class EHController extends Controller
         ]);
 
         EnunciadoHolopraxico::create([
-            'id' =>  EnunciadoHolopraxico::max('id')+1,
-            'pregunta' => $request->eh
+            'pregunta' => $request->eh,
+            'tipo' => 'Primaria'
         ]);
 
-        return Redirect::to('investigacion.ver_investigacion');
+        return redirect('investigacion.ver_investigacion');
     }
 
     /**
