@@ -17,10 +17,9 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
-        <p>Identifique los eventos a estudiar con sus sinergias e indicios correspondientes:</p>
+        <h4>Describa los <b>sinergias e indicios</b> de los eventos:</h4>
         <div class="form-group">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4>Especifique los <b>eventos</b>:</h4>
             <div class="row">
               <div class="col-md-3 col-sm-3 col-xs-12">
                 <input type="text" placeholder="Nombre" id="evento-nombre" required="required" class="form-control col-md-7 col-xs-12">
@@ -106,25 +105,6 @@
           </div>
 
         </div>
-
-      </div>
-    </div>
-
-    <div class="x_panel">
-      <div class="x_title">
-        <h2>Recolección de información, instrumentos y parámetros<small>Fase Proyectiva</small></h2>
-        <ul class="nav navbar-right panel_toolbox">
-          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-          </li>
-
-        </ul>
-        <div class="clearfix"></div>
-      </div>
-      <div class="x_content">
-        <p>Determinemos las tecnicas de recolección de información, los instrumentos, los parámetros y sus niveles:</p>
-
-
-
 
       </div>
     </div>

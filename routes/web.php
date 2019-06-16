@@ -26,8 +26,8 @@ Route::post('/investigacion/store', 'EHController@store');
 
 
 
-Route::get('/ver_investigacion', function () {
-    return view('ver_investigacion');
+Route::get('/holograma', function () {
+    return view('investigacion.holograma');
 });
 
 Route::get('/fase_proyectiva', function () {
