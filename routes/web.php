@@ -21,8 +21,8 @@ Route::post('/cuestionario/store', 'CuestionarioController@store');
 Route::get('/investigacion', 'EHController@create');
 Route::post('/investigacion/store', 'EHController@store');
 
-Route::get('/fundamento', 'EHController@create');
-Route::post('/investigacion/store', 'EHController@store');
+Route::get('/fundamento', 'UnidadInformacionController@create');
+Route::post('/fundamento/store', 'UnidadInformacionController@store');
 
 
 

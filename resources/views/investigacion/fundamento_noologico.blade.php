@@ -172,16 +172,16 @@
             <td>{{$unidad->nivel}}</td>
             <td>{{$unidad->referencia}}</td>
             <td>{{$unidad->referencia}}</td>
-          </tr>
+          </tr> -->
         </tbody>
-        @endforeach
-      </table> -->
+
+      </table>
 
     </div>
   </div>
 
 </div>
-</div>
+
 
 @endsection
 

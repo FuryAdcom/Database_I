@@ -14,8 +14,7 @@ class UnidadInformacionController extends Controller
      */
     public function index()
     {
-        //$unidades = UnidadInformacion::all();
-        return view('investigacion.fundamento_noologico');
+        
     }
 
     /**
@@ -25,7 +24,6 @@ class UnidadInformacionController extends Controller
      */
     public function create()
     {
-        //$unidades = UnidadInformacion::all();
         return view('investigacion.fundamento_noologico');
     }
 
